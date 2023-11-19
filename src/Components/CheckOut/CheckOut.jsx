@@ -25,7 +25,7 @@ const Checkout = () => {
 
     try {
       const batch = writeBatch(db);
-      const productsRef = collection(db, "Comidas");
+      const productsRef = collection(db, "products");
       const ids = cart.map((prod) => prod.id);
 
       const productsFromFirestore = await getDocs(

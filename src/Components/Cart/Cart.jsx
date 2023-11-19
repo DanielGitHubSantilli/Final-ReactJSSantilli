@@ -9,7 +9,7 @@ const Cart = () => {
     if (totalQuantity === 0) {
         return (
             <div className="text-center p-4">
-                <h1 className="text-2xl font-semibold text-verde-agua">Upss, no hay artículos en el Carrito</h1>
+                <h1 className="text-2xl font-semibold text-verde-agua">No hay artículos en el Carrito</h1>
                 <Link to='/' className="text-verde-agua underline hover:text-verde-agua-dark mt-2 inline-block">
                     Volver a la tienda
                 </Link>
@@ -23,11 +23,11 @@ const Cart = () => {
                 <CartItem
                     key={item.id}
                     item={item}
-                    imagen={item.imagen}
+                    imagen={item.img}
                     quantity={item.quantity}
-                    precio={item.precio}
+                    precio={item.price}
                     removeItem={clearCart}
-                    categoria={item.categoria}
+                    categoria={item.category}
                 />
             ))}
             <h3 className="text-xl font-semibold text-verde-agua mt-4">Total: ${!isNaN(total) ? total : 0}</h3>

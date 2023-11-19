@@ -1,3 +1,7 @@
+<h1>PROYECTO FINAL REACT JS.</h1>
+<p> Proyecto realizado para cumplimentar la cursada de CODERHOUSE, en el curso de React JS, El mismo se desarrollo para CAIDIM, entidad de bien público, de Mercedes (B) que le da trabajo a personas con discapacidad intelectual</p>
+<p>Para la realización del mismo se utilizaron las siguientes librerías: ReactBootstrap, react-icons, React-Router-Dom</p>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

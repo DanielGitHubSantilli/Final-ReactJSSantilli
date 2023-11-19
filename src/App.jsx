@@ -7,7 +7,6 @@ import { collection, getDocs } from "firebase/firestore";
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 import{BrowserRouter,Routes,Route} from 'react-router-dom'
-//del video
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from './Components/Cart/Cart';
@@ -35,8 +34,8 @@ function App() {
       {itemProduct.map((item) => (
         <div key={item.id}>
           {/* Aquí puedes renderizar los datos del producto como desees */}
-          <h2>{item.nombre}</h2>
-          <p>{item.descripcion}</p>
+          <h2>item.name</h2>
+          <p>item.description</p>
           
         </div>
       ))}
