@@ -1,42 +1,41 @@
-import React,{useEffect,useState} from 'react'
-//import { getItem } from '../../Mock/mock'
-import ItemDetail from '../ItemDetail/ItemDetail'
-import { useParams } from 'react-router-dom'
+import { useState, useEffect } from "react";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import { useParams } from "react-router-dom";
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from '../../Config/firebase';
 
-import { doc, getDoc } from 'firebase/firestore'
-import {db} from '../../Config/firebase'
+function ItemDetailContainer () {
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const { itemId } = useParams();
+    
+    useEffect(() => {
+        const docRef = doc(db, 'Comidas', itemId);
 
-const ItemDetailContainer = () => {
-  const [prod,setProd]= useState(null)
-  const [setLoader] = useState(true)
-  //loader,
-  const {id}=useParams()
+        setLoading(true); 
+        getDoc(docRef)
+            .then(response => {
+                const data = response.data();
+                const productAdapted = { id: response.id, ...data };
+                setProduct(productAdapted);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+            .finally(() => {
+                setLoading(false); 
+            });
+    }, [itemId]);
 
- 
- useEffect(()=>{
-    setLoader(true)
-    //const collectionProd = collection(db,"products")
-    const docRef = doc(db, 'products', id)
-
-    getDoc(docRef)
-      .then(res => {
-        const data = res.data()
-        const productAddapted= {id: res.id, ...data}
-        setProd(productAddapted)
-      }) 
-      .catch(error => {
-        console.log(error)
-      })
-      .finally(()=>{
-        setLoader(false)
-      })
-}, [id])
-
-  return (
-    <div>
-      <ItemDetail prod={prod}/>
-    </div>
-  )
-}
-
-export default ItemDetailContainer;
+    return (
+        <div className="p-4">
+          {loading ? (
+            <p className="text-verde-agua text-lg">Cargando...</p>
+          ) : (
+            <ItemDetail {...product} />
+          )}
+        </div>
+      );
+    };
+    
+    export default ItemDetailContainer;
