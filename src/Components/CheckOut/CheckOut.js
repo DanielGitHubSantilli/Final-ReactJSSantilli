@@ -9,9 +9,9 @@ import {
   addDoc,
 } from "firebase/firestore";
 
-import { db } from "../../services/firebase/firebaseConfig";
+import { db } from '../../Config/firebase';
 import CartContext from "../../Context/CartContext";
-import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import CheckoutForm from "../CheckOutForm/CheckOutForm";
 
 const Checkout = () => {
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ const Checkout = () => {
 
     try {
       const batch = writeBatch(db);
-      const productsRef = collection(db, "products");
+      const productsRef = collection(db, "Comidas");
       const ids = cart.map((prod) => prod.id);
 
       const productsFromFirestore = await getDocs(

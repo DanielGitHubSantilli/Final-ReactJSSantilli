@@ -5,10 +5,10 @@ import { CartContext } from "../../Context/CartContext";
 
 const ItemDetail = ({
   id,
-  nombre,
-  imagen,
-  categoria,
-  precio,
+  name,
+  img,
+  category,
+  price,
   stock,
 }) => {
   const [quantityAdded, setQuantityAdded] = useState(0);
@@ -20,10 +20,10 @@ const ItemDetail = ({
 
     const item = {
       id,
-      nombre,
-      precio,
-      imagen,
-      categoria
+      name,
+      price,
+      img,
+      category
     };
 
     addItem(item, quantity);
@@ -32,14 +32,14 @@ const ItemDetail = ({
   return (
     <article className="bg-white p-4 rounded-lg shadow-md">
       <header className="mb-4">
-        <h2 className="text-2xl text-verde-agua font-semibold">{nombre}</h2>
+        <h2 className="text-2xl text-verde-agua font-semibold">{name}</h2>
       </header>
       <picture>
-        <img src={imagen} alt={nombre} className="rounded-md" />
+        <img src={img} alt={name} className="rounded-md" />
       </picture>
       <section className="mt-4">
-        <p className="text-verde-agua font-semibold">Categoria: {categoria}</p>
-        <p className="text-verde-agua font-semibold">Precio: ${precio}</p>
+        <p className="text-verde-agua font-semibold">Categoria: {category}</p>
+        <p className="text-verde-agua font-semibold">Precio: ${price}</p>
       </section>
       <footer className="mt-4">
         <div className="flex justify-center">

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const CheckoutForm = ({ onConfirm }) => {
+const CheckOutForm = ({ onConfirm }) => {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
@@ -64,4 +64,4 @@ const CheckoutForm = ({ onConfirm }) => {
       );
     };
     
-    export default CheckoutForm;
+    export default CheckOutForm;
