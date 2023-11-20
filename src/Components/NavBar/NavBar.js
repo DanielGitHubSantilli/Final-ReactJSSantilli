@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
-import CAIDIM from '../../Assets/CAIDIM.svg'
+import CAIDIM from '../../Assets/CAIDIM.svg';
+//import firebase from '../../Config/firebase';
 
 const Navbar = () => {
     return (
@@ -12,8 +13,8 @@ const Navbar = () => {
                 </Link>
 
                 <div className="space-x-4">
-                    <NavLink to={`/Category/liquidos`} activeClassName="ActiveOption" className="Option">Productos Líquidos</NavLink>
-                    <NavLink to={`/Category/cremosos`} activeClassName="ActiveOption" className="Option">Productos Cremosos</NavLink>
+                    <NavLink to={`Category/liquidos`} activeClassName="ActiveOption" className="Option">Productos Líquidos</NavLink>
+                    <NavLink to={`Category/cremosos`} activeClassName="ActiveOption" className="Option">Productos Cremosos</NavLink>
                     <NavLink to={`/Category`} activeClassName="ActiveOption" className="Option">Todos los Productos</NavLink>
                 </div>
 
